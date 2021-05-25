@@ -1,0 +1,36 @@
+## wordpress depolyment ##
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+spec:
+  selector:
+    matchLabels:
+      app: wordpress
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: wordpress
+        tier: frontend
+    spec:
+      containers:
+      - image: wordpress
+        name: wordpress
+        ports:
+        - containerPort: 80
+          name: wordpress
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: mysql-service  
+        envFrom:
+        - secretRef:
+            name: wordpress-properties
+        volumeMounts:
+        - name: wordpress-volume
+          mountPath: /var/www/html
+      volumes:
+        - name: wordpress-volume
+          persistentVolumeClaim:
+            claimName: wordpress-pv-claim

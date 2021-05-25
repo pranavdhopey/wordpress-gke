@@ -1,0 +1,17 @@
+## mysql service ##
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-service
+  labels:
+    app: wordpress
+    tier: backend
+spec:
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306 
+  selector:
+    app: wordpress
+    tier: backend
+  clusterIP: None

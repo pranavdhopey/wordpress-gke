@@ -1,0 +1,8 @@
+## mysql.properties file content##
+MYSQL_DATABASE=wordpress
+MYSQL_USER=wordpress
+MYSQL_PASSWORD=password
+MYSQL_ROOT_PASSWORD=12345
+
+## To Get secrets file ##
+kubectl create secret generic mysql-properties --from-env-file=mysql.properties --dry-run=client -o yaml > mysql-secrets.yaml
