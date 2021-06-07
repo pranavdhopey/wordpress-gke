@@ -34,3 +34,6 @@ spec:
         - name: wordpress-volume
           persistentVolumeClaim:
             claimName: wordpress-pv-claim
+          #gcePersistentDisk:
+          #  fsType: ext4
+          #  pdName: my-data-disk    
