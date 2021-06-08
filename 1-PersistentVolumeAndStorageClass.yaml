@@ -1,5 +1,5 @@
 ## Create Volume using below command ##
-#gcloud compute disk create --size=20Gi --zone=ap-south1-a my-data-disk 
+#gcloud compute disk create --size=15Gi --zone=ap-south1-a my-data-disk 
 
 ---
 ## Persistent Volume ##
