@@ -31,3 +31,4 @@ provisioner: kubernetes.io/gce-pd
 parameters:
   type: pd-standard
   fstype: ext4
+reclaimPolicy: Retain  
