@@ -11,4 +11,4 @@ spec:
   resources:
     requests:
       storage: 15Gi
-  storageClassName: slow
+  storageClassName: wordpress-pv
