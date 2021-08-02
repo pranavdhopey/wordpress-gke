@@ -1,5 +1,5 @@
 ## Create Volume using below command ##
-#gcloud beta compute disks create my-data-disk --project=<my-project> --type=pd-balanced --size=15GB --zone=<my-zone>
+#gcloud beta compute disks create my-data-disk --project=<my-project> --type=pd-standard --size=15GB --zone=<my-zone>
 
 ---
 ## Persistent Volume ##
@@ -40,3 +40,4 @@ provisioner: kubernetes.io/gce-pd
 parameters:
   type: pd-standard
   fstype: ext4
+reclaimPolicy: Retain  
