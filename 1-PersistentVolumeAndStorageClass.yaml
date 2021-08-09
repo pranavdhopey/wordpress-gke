@@ -29,7 +29,7 @@ provisioner: kubernetes.io/gce-pd
 parameters:
   type: pd-standard
   fstype: ext4
-reclaimPolicy: Retain   
+#reclaimPolicy: Retain   
 
 ---
 ## Storage Class Mysql ##
@@ -41,4 +41,4 @@ provisioner: kubernetes.io/gce-pd
 parameters:
   type: pd-standard
   fstype: ext4
-reclaimPolicy: Retain  
+#reclaimPolicy: Retain  
