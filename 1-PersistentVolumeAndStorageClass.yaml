@@ -7,6 +7,8 @@
 #kind: PersistentVolume
 #metadata:
 #  name: wordpress-pv
+#   labels:
+#    app: wordpress 
 #spec:
 #  accessModes: 
 #    - ReadWriteOnce
@@ -25,6 +27,8 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: wordpress-pv
+  labels:
+    app: wordpress
 provisioner: kubernetes.io/gce-pd
 parameters:
   type: pd-standard
@@ -37,6 +41,8 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: mysql-pv
+  labels:
+    app: wordpress
 provisioner: kubernetes.io/gce-pd
 parameters:
   type: pd-standard
