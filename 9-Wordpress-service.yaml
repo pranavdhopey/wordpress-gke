@@ -1,3 +1,7 @@
+## Create Static IP for Load Balancer ##
+#gcloud compute addresses create wordpress-ip --region asia-south1
+
+
 ## wordpress service ##			
 apiVersion: v1
 kind: Service
@@ -15,3 +19,4 @@ spec:
     app: wordpress
     tier: frontend
   type: LoadBalancer
+  loadBalancerIP: "YOUR.IP.ADDRESS.HERE"
