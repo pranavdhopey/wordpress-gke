@@ -17,6 +17,7 @@ kubectl create secret generic wordpress-secrets --from-env-file=wordpress-secret
 ```
 gcloud compute addresses create wordpress-ip --region <your-region>
 ```
+
 ### Update above created IP address in 9-Wordpress-service.yaml file ### 
 
 ## Apply the Manifest from 1-* to 9-* ##
