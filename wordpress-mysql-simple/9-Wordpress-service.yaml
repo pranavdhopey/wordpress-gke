@@ -2,7 +2,8 @@
 #gcloud compute addresses create wordpress-ip --region asia-south1
 
 
-## wordpress service ##			
+## wordpress service ##		
+---	
 apiVersion: v1
 kind: Service
 metadata:
@@ -18,5 +19,5 @@ spec:
   selector:
     app: wordpress
     tier: frontend
-  type: LoadBalancer
-  loadBalancerIP: "YOUR.IP.ADDRESS.HERE"
+  type: LoadBalancer ##ClusterIP
+  loadBalancerIP: "YOUR.IP.ADDRESS.HERE" 

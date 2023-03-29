@@ -1,0 +1,29 @@
+---
+## Storage Class Wordpress ##
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: wordpress-pv
+  labels:
+    app: wordpress
+provisioner: kubernetes.io/gce-pd
+parameters:
+  type: pd-standard
+  fstype: ext4
+#reclaimPolicy: Retain         ## Delete
+volumeBindingMode: Immediate   ## WaitForFirstConsumer  
+
+---
+## Storage Class Mysql ##
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: mysql-pv
+  labels:
+    app: wordpress
+provisioner: kubernetes.io/gce-pd
+parameters:
+  type: pd-standard
+  fstype: ext4
+#reclaimPolicy: Retain         ## Delete
+volumeBindingMode: Immediate   ## WaitForFirstConsumer  

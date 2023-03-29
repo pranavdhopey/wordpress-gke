@@ -18,14 +18,14 @@ spec:
         tier: backend
     spec:
       containers:
-      - image: mysql
+      - image: mysql:8.0
         name: mysql
         ports:
         - containerPort: 3306
           name: mysql
         envFrom:
         - secretRef:
-            name: mysql-properties
+            name: mysql-secrets
         volumeMounts:
         - name: mysql-volume
           mountPath: /var/lib/mysql

@@ -1,7 +1,0 @@
-## wordpress.properties file content ##
-WORDPRESS_DB_USER=wordpress
-WORDPRESS_DB_PASSWORD=password
-WORDPRESS_DB_NAME=wordpress  
-  
-## To Get secrets file ##
-kubectl create secret generic wordpress-properties --from-env-file=wordpress.properties --dry-run=client -o yaml > wordpress-secret.yaml
