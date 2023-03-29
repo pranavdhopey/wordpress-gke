@@ -20,7 +20,7 @@ SA_EMAIL=$(gcloud iam service-accounts list \
     --format='value(email)')
 ```
 
-## Assign a Cloud SQL Client to IAM SA ##
+## Assign a Cloud SQL Client Role to IAM SA ##
 ```
 gcloud projects add-iam-policy-binding $PROJECT_ID \
     --role roles/cloudsql.client \
