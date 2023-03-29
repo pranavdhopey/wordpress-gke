@@ -60,7 +60,7 @@ spec:
             - name: cloudsql-instance-credentials
               mountPath: /secrets/cloudsql
               readOnly: true
-      serviceAccountName: default        
+      serviceAccountName: wordpress-sa        
       volumes:
         - name: wordpress-volume
           persistentVolumeClaim:
