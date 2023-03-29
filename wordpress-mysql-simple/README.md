@@ -6,7 +6,7 @@
 kubectl create ns wordpress
 ```
 
-### Update the Secrets in wordpress-secrets file as per the CloudSQL Configuartion ###
+### Update the Secrets in wordpress-secrets and mysql-secrets file as per your Configuartion ###
 
 ## Apply the Manifest from 1-* to 9-* ##
 ```
