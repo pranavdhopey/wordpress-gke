@@ -42,7 +42,18 @@ kubectl.exe annotate sa wordpress-sa -n wordpress iam.gke.io/gcp-service-account
 
 ### Update the Secrets in wordpress-secrets file as per the CloudSQL Configuartion ###
 
+```
+kubectl create secret generic wordpress-secrets --from-env-file=wordpress-secrets --dry-run=client -o yaml > 3-Wordpress-secrets.yaml
+```
+
+## Create Static IP for Load Balancer ##
+```
+gcloud compute addresses create wordpress-ip --region <your-region>
+```
+### Update above created IP address in 5-Wordpress-service.yaml file ### 
+
 ## Apply the Manifest from 1-* to 5-* ##
 ```
 kubectl apply -n wordpress -f 1-StorageClass.yaml -f 2-WordpressPVClaim.yaml -f 3-Wordpress-secrets.yaml -f 4-Wordpress-Deployment-CloudSQL.yaml -f 5-Wordpress-service.yaml
 ```
+

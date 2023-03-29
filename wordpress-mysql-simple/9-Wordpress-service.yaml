@@ -1,7 +1,3 @@
-## Create Static IP for Load Balancer ##
-#gcloud compute addresses create wordpress-ip --region asia-south1
-
-
 ## wordpress service ##		
 ---	
 apiVersion: v1
