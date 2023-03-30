@@ -1,0 +1,15 @@
+---
+## Persistent Volume Claim wordpress ##   
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+   name: wordpress-pv-claim
+   labels:
+     app: wordpress
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 15Gi
+  storageClassName: wordpress-pv

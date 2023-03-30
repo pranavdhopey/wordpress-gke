@@ -13,9 +13,9 @@ kubectl create secret generic mysql-secrets --from-env-file=mysql-secrets --dry-
 kubectl create secret generic wordpress-secrets --from-env-file=wordpress-secrets --dry-run=client -o yaml > 7-Wordpress-secrets.yaml
 ```
 
-## Create Static IP for Load Balancer ##
+## Create Static Global IP for Load Balancer ##
 ```
-gcloud compute addresses create wordpress-ip --region <your-region>
+gcloud compute addresses create wordpress-ip --global
 ```
 
 ### Update above created IP address in 9-Wordpress-service.yaml file ### 

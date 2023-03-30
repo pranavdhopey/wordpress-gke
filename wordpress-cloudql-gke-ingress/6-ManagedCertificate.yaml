@@ -1,0 +1,9 @@
+#### Managed Certificate ####
+---
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: wordpress-ssl-certificate
+spec:
+  domains:
+    - wordpress.goinit.net
