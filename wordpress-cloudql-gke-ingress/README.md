@@ -1,4 +1,5 @@
 ## Configure a GKE Cluster with Workload Identity Feature Enabled ##
+## Configure a CloudSQL Mysql 8 instance from Google Cloud Console ##
 
 ## Create Namespace and ServiceAccount ##
 
