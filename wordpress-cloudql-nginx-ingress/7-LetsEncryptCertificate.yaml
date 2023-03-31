@@ -11,7 +11,7 @@ spec:
     kind: Issuer
     name: letsencrypt-production-issuer
   dnsNames:
-  - wordpress.goinit.net
+  - wordpress.example.com
 
 
 ## Deploy Below if ClusterIssuer is used ##
@@ -29,4 +29,4 @@ spec:
 #     kind: ClusterIssuer
 #     name: letsencrypt-production-clusterissuer
 #   dnsNames:
-#   - wordpress.goinit.net  
+#   - wordpress.example.com  

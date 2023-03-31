@@ -5,13 +5,13 @@ kind: Ingress
 metadata:
   name: wordpress-ingress
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: "pranav-wordpress-ip"
+    kubernetes.io/ingress.global-static-ip-name: "wordpress-ip"
     kubernetes.io/ingress.allow-http: "true"
     networking.gke.io/managed-certificates: "wordpress-goinit-ssl-cert"
     networking.gke.io/v1beta1.FrontendConfig: "wordpress-frontendconfig"
 spec:
   rules:
-    - host: wordpress.goinit.net
+    - host: wordpress.example.com
       http:
         paths:
           - path: /
