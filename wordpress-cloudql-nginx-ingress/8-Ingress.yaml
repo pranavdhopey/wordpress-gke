@@ -1,0 +1,23 @@
+## Deploy Ingress ##
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: wordpress-nginx-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    cert-manager.io/issuer: letsencrypt-production                ## Enable if Issuer is deployed 
+    # cert-manager.io/cluster-issuer: letsencrypt-production      ## Enable if ClusterIssuer is deployed 
+spec:
+  rules:
+    - host: wordpress.goinit.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: wordpress-service
+                port:
+                  number: 80

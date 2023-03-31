@@ -1,6 +1,24 @@
 ## Configure a GKE Cluster with Workload Identity Feature Enabled ##
 ## Configure a CloudSQL Mysql 8 instance from Google Cloud Console ##
 
+## Deploy Nginx Ingress Controller ##
+
+Ref: https://kubernetes.github.io/ingress-nginx/deploy/#gce-gke
+
+```
+helm upgrade --install ingress-nginx ingress-nginx \
+  --repo https://kubernetes.github.io/ingress-nginx \
+  --namespace ingress-nginx --create-namespace
+```
+
+
+## Deploy Cert Manger CRD's on Cluster ##
+Ref: https://cert-manager.io/docs/installation/kubectl/
+
+```
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.yaml
+```
+
 
 ## Create Namespace and ServiceAccount ##
 
@@ -54,6 +72,7 @@ kubectl.exe annotate sa wordpress-sa -n wordpress iam.gke.io/gcp-service-account
 kubectl create secret generic wordpress-secrets --from-env-file=wordpress-secrets --dry-run=client -o yaml > 3-Wordpress-secrets.yaml
 ```
 
+
 ## Create Static IP for Load Balancer ##
 
 ```
@@ -69,14 +88,14 @@ gcloud compute addresses create wordpress-ip --global
 kubectl apply -n wordpress -f 1-StorageClass.yaml -f 2-WordpressPVClaim.yaml -f 3-Wordpress-secrets.yaml -f 4-Wordpress-Deployment-CloudSQL.yaml -f 5-Wordpress-service.yaml
 ```
 
-## Update and Apply Managed Certificate ##
+## Update and Apply Issuer and Certificate Manifest ##
 
 ```
-kubectl apply -n wordpress -f 6-ManagedCertificate.yaml
+kubectl apply -n wordpress -f 6-Issuer.yaml -f 7-LetsEncryptCertificate.yaml
 ```
 
 ## Update and Apply Frontend Config and Ingress ##
 
 ```
-kubectl apply -n wordpress -f 7-FrontendConfig.yaml -f Ingress.yaml
+kubectl apply -n wordpress -f Ingress.yaml
 ```

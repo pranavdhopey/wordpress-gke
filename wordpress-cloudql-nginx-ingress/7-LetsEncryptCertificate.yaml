@@ -1,0 +1,32 @@
+---
+## Deploy LetsEncrypt Certificate ##
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wordpress-goinit-cert
+spec:
+  secretName: wordpress-goinit-tls
+  issuerRef:
+    kind: Issuer
+    name: letsencrypt-production-issuer
+  dnsNames:
+  - wordpress.goinit.net
+
+
+## Deploy Below if ClusterIssuer is used ##
+
+---
+## Deploy LetsEncrypt Certificate ##
+
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   name: wordpress-goinit-cert
+# spec:
+#   secretName: wordpress-goinit-tls
+#   issuerRef:
+#     kind: ClusterIssuer
+#     name: letsencrypt-production-clusterissuer
+#   dnsNames:
+#   - wordpress.goinit.net  
